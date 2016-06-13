@@ -1,5 +1,7 @@
 # forfuturellc: blog-post-001
 
+[![Build Status](https://travis-ci.org/forfuturellc-x/blog-post-001.svg?branch=master)](https://travis-ci.org/forfuturellc-x/blog-post-001)
+
 Find the blog post at http://blog.forfuture.co.ke/posts/001.
 
 
@@ -30,5 +32,5 @@ $ node client.js
 
 **The MIT License (MIT)**
 
-Copyright (c) 2016 GochoMugo (www.gmugo.in)
+Copyright (c) 2016 GochoMugo (www.gmugo.in) <br/>
 Copyright (c) 2016 Forfuture, LLC (www.forfuture.co.ke)
