@@ -61,7 +61,7 @@ for (var i = 0; i < burst; i++) {
             // You need to stop your `pothole` so that the event loop
             // can exit cleanly. Why? A `pothole` uses a timer
             // internally.
-            if (requestsDone == burst) pothole.stop("my-api");
+            if (requestsDone === burst) pothole.stop("my-api");
         });
     });
 }
