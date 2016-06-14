@@ -11,6 +11,7 @@ var pothole = require('pothole');
 var burst = 27;
 
 var requestsDone = 0;
+var lastRequestTime;
 
 
 // We add a new `pothole` for the API labelled `my-api`, passing
@@ -42,7 +43,20 @@ for (var i = 0; i < burst; i++) {
                 console.error(err);
                 process.exit(1);
             }
-            console.log('[%d] server response: remaining=%d', requestsDone, res.body.data.remaining);
+
+            // Generating time diffs to demonstrate the momentary 'pause'
+            // after every 10 requests, as Pothole waits for the next
+            // window
+            var now = Date.now();
+            var timeDiff = lastRequestTime ? now - lastRequestTime : 0;
+            lastRequestTime = now;
+
+            // For testing purposes, we disable logging the time diff
+            // as it is not deterministic/constant. It will inevitably
+            // vary.
+            if (process.env.NO_TIME_DIFF) timeDiff = '?';
+
+            console.log('[%d] server response: remaining=%d +%sms', requestsDone, res.body.data.remaining, timeDiff);
 
             // You need to stop your `pothole` so that the event loop
             // can exit cleanly. Why? A `pothole` uses a timer

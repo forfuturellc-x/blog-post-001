@@ -4,7 +4,7 @@
   "description": "Accompanying code for blog post 001",
   "main": "server.js",
   "scripts": {
-    "test": "node test/test.js",
+    "test": "NO_TIME_DIFF=1 node test/test.js",
     "start": "node server.js"
   },
   "repository": {
